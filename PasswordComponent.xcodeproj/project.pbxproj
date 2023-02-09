@@ -11,6 +11,7 @@
 		017699DE29953809003C9029 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017699DD29953809003C9029 /* ViewController.swift */; };
 		017699E32995380B003C9029 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 017699E22995380B003C9029 /* Assets.xcassets */; };
 		017699E62995380B003C9029 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 017699E42995380B003C9029 /* LaunchScreen.storyboard */; };
+		017699F029953A4C003C9029 /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017699EF29953A4C003C9029 /* PasswordTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		017699E22995380B003C9029 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		017699E52995380B003C9029 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		017699E72995380B003C9029 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		017699EF29953A4C003C9029 /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +54,7 @@
 		017699D829953809003C9029 /* PasswordComponent */ = {
 			isa = PBXGroup;
 			children = (
+				017699EE29953A37003C9029 /* Password */,
 				017699ED2995381E003C9029 /* Files */,
 				017699D929953809003C9029 /* AppDelegate.swift */,
 				017699DD29953809003C9029 /* ViewController.swift */,
@@ -67,6 +70,14 @@
 				017699E72995380B003C9029 /* Info.plist */,
 			);
 			name = Files;
+			sourceTree = "<group>";
+		};
+		017699EE29953A37003C9029 /* Password */ = {
+			isa = PBXGroup;
+			children = (
+				017699EF29953A4C003C9029 /* PasswordTextField.swift */,
+			);
+			name = Password;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +152,7 @@
 			files = (
 				017699DE29953809003C9029 /* ViewController.swift in Sources */,
 				017699DA29953809003C9029 /* AppDelegate.swift in Sources */,
+				017699F029953A4C003C9029 /* PasswordTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,9 @@
 
 import Foundation
 import UIKit
+protocol PasswordTextFieldDelegate: AnyObject {
+    func editingChanged(_ sender: PasswordTextField)
+}
 
 class PasswordTextField : UIView {
     let lockImageView = UIImageView(image: UIImage(systemName: "lock.fill"))
@@ -15,7 +18,7 @@ class PasswordTextField : UIView {
     let dividerView = UIView()
     let errorLabel = UILabel()
     let placeHolderText: String
-        
+    weak var delegate: PasswordTextFieldDelegate?
     init(placeHolderText: String) {
         self.placeHolderText = placeHolderText
         
@@ -43,10 +46,12 @@ extension PasswordTextField {
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.isSecureTextEntry = false // true
         textField.placeholder = placeHolderText
-        //textField.delegate = self
+        textField.delegate = self
         textField.keyboardType = .asciiCapable
         textField.attributedPlaceholder = NSAttributedString(string:placeHolderText,
                                                              attributes: [NSAttributedString.Key.foregroundColor: UIColor.secondaryLabel])
+        textField.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
+        
         eyeButton.translatesAutoresizingMaskIntoConstraints = false
         eyeButton.setImage(UIImage(systemName: "eye.circle"), for: .normal)
         eyeButton.setImage(UIImage(systemName: "eye.slash.circle"), for: .selected)
@@ -61,7 +66,7 @@ extension PasswordTextField {
         errorLabel.text = "Your password must meet the requirements below"
         errorLabel.numberOfLines = 0
         errorLabel.lineBreakMode = .byWordWrapping
-        errorLabel.isHidden = false
+        errorLabel.isHidden = true
     }
     
     func layout() {
@@ -102,7 +107,7 @@ extension PasswordTextField {
             errorLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             errorLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])
-
+        
     }
 }
 // MARK: - Actions
@@ -110,5 +115,17 @@ extension PasswordTextField {
     @objc func togglePasswordView(_ sender: Any) {
         textField.isSecureTextEntry.toggle()
         eyeButton.isSelected.toggle()
+    }
+    
+    @objc func textFieldEditingChanged(_ sender: UITextField) {
+        delegate?.editingChanged(self) // add
+    }
+    
+}
+
+// MARK: - UITextFieldDelegate
+extension PasswordTextField: UITextFieldDelegate {
+    func editingChanged(_ sender: PasswordTextField) {
+        delegate?.editingChanged(sender)
     }
 }

@@ -16,7 +16,6 @@ class PasswordCriteriaView: UIView {
     let xmarkImage = UIImage(systemName: "xmark.circle")!.withTintColor(.systemRed, renderingMode: .alwaysOriginal)
     let circleImage = UIImage(systemName: "circle")!.withTintColor(.tertiaryLabel, renderingMode: .alwaysOriginal)
     
-    
     var isCriteriaMet: Bool = false {
         didSet {
             if isCriteriaMet {
